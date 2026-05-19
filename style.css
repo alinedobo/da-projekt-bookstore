@@ -33,7 +33,7 @@ main {
     height: 80dvh;
     width: 100%;
 
-    #book-listing{
+    #book-listing {
         background-color: brown;
         width: 100%;
         display: flex;
@@ -43,8 +43,8 @@ main {
         gap: 16px;
         padding: 8px 40px;
     }
-    
-    .book-preview{
+
+    .book-preview {
         height: 150px;
         width: 200px;
         background-color: aqua;
@@ -53,19 +53,102 @@ main {
         justify-content: flex-start;
         align-items: center;
 
-        img{
+        img {
             height: 100px;
             width: 100px;
         }
 
-        
-        p{
+        p {
             text-align: center;
         }
     }
 
-    .book-preview:hover{
+    .book-preview:hover {
         cursor: pointer;
+    }
+
+    #book-dialog {
+        height: 70dvh;
+        width: 80dvw;
+        max-width: 400px;
+        margin: auto;
+
+        #dialog-container {
+            height: 100%;
+            width: 100%;
+            background-color: lightgrey;
+            display: flex;
+            flex-direction: column;
+            align-items: space-between;
+            justify-content: flex-start;
+            padding: 16px;
+            gap: 16px;
+
+            h2 {
+                font-size: 20px;
+                text-align: start;
+            }
+
+            header {
+                height: fit-content;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 4px;
+                border: solid black 1px;
+
+                img {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+
+            #book-details {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                gap: 8px;
+                flex-direction: column;
+                border: solid black 1px;
+
+                #book-numbers {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 4px;
+
+                    #likes {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 8px;
+
+                        button{
+                            img {
+                                height: 20px;
+                                width: 20px;
+                            }
+                            img:hover{
+                                height: 21px;
+                                width: 21px;
+                            }
+                        }
+                        button:clicked{
+                            background-color: red;
+                        }
+                    }
+                }
+                table {
+                    padding: 4px;
+                    th,td {
+                        text-align: start;
+                    }
+                }
+            }
+        }
     }
 }
 
