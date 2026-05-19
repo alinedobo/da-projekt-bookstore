@@ -58,9 +58,9 @@ function showBookDetails(index) {
         </section>
         <footer>
             <h3>Add your comment:</h3>
-            <div id="comment-input">
-            <input type="text">
-            <button>Send</button>
+            <div id="comment-input-section">
+            <input type="text" id="comment-input">
+            <button onclick="saveComment(${index})">Send</button>
             </div>
         </footer>
     </div>
@@ -80,5 +80,25 @@ commentRef.innerHTML += /*html*/`
         <td>${books[index].comments[i].comment}</td>
     </tr>
         `;
+}
+}
+
+function saveComment(index){
+    const commentInputRef = document.getElementById("comment-input");
+    const commentInput = commentInputRef.value;
+
+    commentInputRef.value = "";
+
+    if (commentInput === "") {
+        /* do nothing */
+    } else {
+        let myComment = {
+            name: "You",
+            comment: commentInput,
+        }
+       books[index].comments.push(myComment);
+
+    showPreviousComments(index);
+/*     saveToLocalStorage(index); */
 }
 }
