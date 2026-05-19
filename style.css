@@ -141,6 +141,43 @@ main {
                     }
                 }
             }
+
+            h3{
+                font-size: 18px;
+                padding: 4px;
+            }
+
+            #comment-section {
+                background-color: pink;
+                overflow: scroll;
+                th,
+                td {
+                    padding: 4px;
+                    text-align: start;
+                    vertical-align: top;
+                }
+            }
+            
+            footer {
+                width: 100%;
+                height: fit-content;
+                background-color: yellow;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                text-align: start;
+
+                #comment-input{
+                    padding: 4px;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                input{
+                    border: 1px solid black;
+                    width: 80%;
+                }
+            }
         }
     }
 }

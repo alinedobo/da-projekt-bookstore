@@ -16,13 +16,9 @@ function renderBookListing() {
 }
 
 
-
-
 function showBookDetails(index) {
     const dialogRef = document.getElementById("book-dialog");
-
     dialogRef.showModal();
-
     dialogRef.innerHTML = /*html*/ `
     <div id="dialog-container">
         <header>
@@ -57,14 +53,32 @@ function showBookDetails(index) {
             </div>
         </section>
         <section>
-            <h3>Comments:</h3>
-            <table>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <h3>Previous comments (${books[index].comments.length}):</h3>
+            <table id="comment-section"></table>
         </section>
+        <footer>
+            <h3>Add your comment:</h3>
+            <div id="comment-input">
+            <input type="text">
+            <button>Send</button>
+            </div>
+        </footer>
     </div>
     `;
+
+showPreviousComments(index);
+}
+
+
+function showPreviousComments(index){
+const commentRef = document.getElementById("comment-section");
+
+for (let i = 0; i < books[index].comments.length; i++){
+commentRef.innerHTML += /*html*/`
+    <tr>
+        <td>${books[index].comments[i].name}</td>
+        <td>${books[index].comments[i].comment}</td>
+    </tr>
+        `;
+}
 }
