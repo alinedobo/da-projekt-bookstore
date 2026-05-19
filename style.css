@@ -20,17 +20,17 @@ html {
 }
 
 header {
-    height: 15dvh;
+    height: 10dvh;
     padding: 3dvh;
 
     h1 {
-        font-size: clamp(2rem, 4dvw, 4rem);
+        font-size: clamp(1.75rem, 3.5dvh, 3rem);
     }
 }
 
 main {
     background-color: beige;
-    height: 80dvh;
+    min-height: 85dvh;
     width: 100%;
 
     #book-listing {
@@ -41,7 +41,7 @@ main {
         justify-content: center;
         align-items: flex-start;
         gap: 16px;
-        padding: 8px 40px;
+        padding: 0px max((calc(100% - 800px) / 2), 16px);
     }
 
     .book-preview {
@@ -81,8 +81,8 @@ main {
             flex-direction: column;
             align-items: space-between;
             justify-content: flex-start;
-            padding: 16px;
             gap: 16px;
+            padding: 16px;
 
             h2 {
                 font-size: 20px;
@@ -111,6 +111,7 @@ main {
                 gap: 8px;
                 flex-direction: column;
                 border: solid black 1px;
+                padding: 4px;
 
                 #book-numbers {
                     height: 100%;
@@ -126,24 +127,16 @@ main {
                         justify-content: space-between;
                         gap: 8px;
 
-                        button{
-                            img {
-                                height: 20px;
-                                width: 20px;
-                            }
-                            img:hover{
-                                height: 21px;
-                                width: 21px;
-                            }
-                        }
-                        button:clicked{
-                            background-color: red;
+                        #heart {
+                            font-size: 36px;
+                            align-items: center;
                         }
                     }
                 }
                 table {
                     padding: 4px;
-                    th,td {
+                    th,
+                    td {
                         text-align: start;
                     }
                 }

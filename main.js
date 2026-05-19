@@ -35,11 +35,8 @@ function showBookDetails(index) {
                     <h2 id="price">${books[index].price}€</h2>
                     <div id="likes">
                         <p id="likes-counter">1212</p>
-                        <button>
-                            <img
-                            src="./assets/icons/Github-Octicons-Heart-16.512.png"
-                            alt="heart icon"
-                            />
+                        <button id="heart">
+                            <p>&#x2661;</p>
                         </button>
                     </div>
                 </div>
@@ -58,6 +55,15 @@ function showBookDetails(index) {
                     </tr>
                 </table>
             </div>
+        </section>
+        <section>
+            <h3>Comments:</h3>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
         </section>
     </div>
     `;
