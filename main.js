@@ -1,5 +1,6 @@
 function init() {
     renderBookListing();
+    getFromLocalStorage()
 }
 
 function renderBookListing() {
@@ -23,14 +24,16 @@ function showBookDetails(index) {
     <div id="dialog-container">
         <header>
             <h2 id="title">${books[index].name}</h2>
-            <img src="./assets/icons/close-button.svg" alt="close button" />
+            <button onclick="closeDialog()">
+                <img src="./assets/icons/close-button.svg" alt="close button" />
+            </button>
         </header>
         <section>
             <div id="book-details">
                 <div id="book-numbers">
                     <h2 id="price">${books[index].price}€</h2>
                     <div id="likes">
-                        <p id="likes-counter">1212</p>
+                        <p id="likes-counter">${books[index].likes}</p>
                         <button id="heart">
                             <p>&#x2661;</p>
                         </button>
@@ -70,24 +73,28 @@ showPreviousComments(index);
 }
 
 
+
 function showPreviousComments(index){
 const commentRef = document.getElementById("comment-section");
 
 for (let i = 0; i < books[index].comments.length; i++){
 commentRef.innerHTML += /*html*/`
     <tr>
-        <td>${books[index].comments[i].name}</td>
+        <td>${books[index].comments[i].name}:</td>
         <td>${books[index].comments[i].comment}</td>
     </tr>
         `;
 }
 }
 
+
 function saveComment(index){
     const commentInputRef = document.getElementById("comment-input");
     const commentInput = commentInputRef.value;
+    const commentRef = document.getElementById("comment-section");
 
     commentInputRef.value = "";
+    commentRef.innerHTML = "";
 
     if (commentInput === "") {
         /* do nothing */
@@ -99,6 +106,11 @@ function saveComment(index){
        books[index].comments.push(myComment);
 
     showPreviousComments(index);
-/*     saveToLocalStorage(index); */
+    updateLocalStorage();
 }
+}
+
+function closeDialog() {
+    const dialogRef = document.getElementById("book-dialog");
+    dialogRef.close();
 }
